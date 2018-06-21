@@ -2,13 +2,13 @@ name: LaboConnect
 version: 1.0.5
 appVersion: 4.9.5
 description: Laboconnect software deployment
-icon: https://kubernetes-01.progi.loc/root/img.png
+#icon: https://kubernetes-01.progi.loc/root/img.png
 keywords:
 - laboconnect
 - httpd
 - postgres
 - jboss
-home: http://laboconnect.com/
+home: http://www.wordpress.com/
 sources:
 - https://github.com/bitnami/bitnami-docker-wordpress
 maintainers:
