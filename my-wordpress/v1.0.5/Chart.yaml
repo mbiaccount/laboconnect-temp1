@@ -1,4 +1,4 @@
-name: wordpress
+name: LaboConnect
 version: 1.0.5
 appVersion: 4.9.5
 description: Laboconnect software deployment
@@ -11,7 +11,7 @@ keywords:
 - web
 - application
 - php
-home: http://www.wordpress.com/
+home: http://laboconnect.com/
 sources:
 - https://github.com/bitnami/bitnami-docker-wordpress
 maintainers:
