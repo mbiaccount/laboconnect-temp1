@@ -7,5 +7,3 @@ keywords:
 home: https://github.com/kubernetes/dashboard
 sources:
 - https://github.com/kubernetes/dashboard
-maintainers:
-icon: https://raw.githubusercontent.com/kubernetes/kubernetes/master/logo/logo.svg
