@@ -1,9 +1,7 @@
+apiVersion: "v1"
 name: laboconnect
 version: 0.6.8
 appVersion: 1.8.3
 description: This is MBI for DL, trying to make great thing
 keywords:
 - laboconnect
-home: https://github.com/kubernetes/dashboard
-sources:
-- https://github.com/kubernetes/dashboard
