@@ -19,7 +19,7 @@ questions:
     default: "03.06"
     description: "WordPress image tag"
     type: string
-    label: Image Tag
+    label: HTTPD Image Tag
   - variable: mariadb.image.repository
     default: "image location"
     description: "POSTGRES image name"
@@ -30,6 +30,17 @@ questions:
     description: "MariaDB image tag"
     type: string
     label: MariaDB Image Tag
+  - variable: mariadb.image.repository
+    default: "image location"
+    description: "laboconnect image name"
+    type: string
+    label: laboconnect image name
+  - variable: mariadb.image.tag
+    default: "03.06"
+    description: "laboconnect image tag"
+    type: string
+    label: MariaDB Image Tag
+
 # HTTPD SETTING ----------------------------------------------------------------------------------------------------
 - group: "frontal web settings"
   variable: httpd host
@@ -38,71 +49,30 @@ questions:
   type: string
   required: true
   label: Frontal web host
-- variable: Access port
+- group: "frontal web settings"
+  variable: Access port
   default: ""
   description: "port you use to access application (browser)"
   type: string
   label: Access port
+
 # POSTGRES SETTING -------------------------------------------------------------------------------------------------
-- variable: mariadb.enabled
-  default: "true"
-  description: "Deploy a database server as part of this deployment, or set to false and configure an external database connection."
-  type: boolean
-  required: true
-  label: Install MariaDB
-  show_subquestion_if: true
-  group: "Database Settings"
-  subquestions:
-  - variable: mariadb.mariadbDatabase
-    default: "wordpress"
-    description: "Database name to create"
-    type: string
-    label: MariaDB Database
-  - variable: mariadb.mariadbUser
-    default: "wordpress"
-    description: "Database user to create"
-    type: string
-    label: MariaDB User
-  - variable: mariadb.mariadbPassword
-    default: ""
-    description: "password will be auto-generated if not specified"
-    type: password
-    label: MariaDB Password
-- variable: externalDatabase.host
-  default: ""
-  description: "Host of the external database"
+- variable: mariadb.mariadbDatabase
+  default: "postgres"
+  description: "Database name to create"
   type: string
-  label: External Database Host
-  show_if: "mariadb.enabled=false"
-  group: "Database Settings"
-- variable: externalDatabase.user
-  default: ""
-  description: "Existing username in the external DB"
+  label: POSTGRES Database
+- variable: mariadb.mariadbUser
+  default: "postgres"
+  description: "Database user to create"
   type: string
-  label: External Database username
-  show_if: "mariadb.enabled=false"
-  group: "Database Settings"
-- variable: externalDatabase.password
+  label: MariaDB User
+- variable: mariadb.mariadbPassword
   default: ""
-  description: "External database password"
+  description: "password will be auto-generated if not specified"
   type: password
-  label: External Database password
-  show_if: "mariadb.enabled=false"
-  group: "Database Settings"
-- variable: externalDatabase.database
-  default: ""
-  description: "Name of the existing database"
-  type: string
-  label: External Database
-  show_if: "mariadb.enabled=false"
-  group: "Database Settings"
-- variable: externalDatabase.port
-  default: "3306"
-  description: "External database port number"
-  type: string
-  label: External Database Port
-  show_if: "mariadb.enabled=false"
-  group: "Database Settings"
+  label: POSTGRES Password
+
 - variable: mariadb.persistence.enabled
   default: "false"
   description: "Enable persistent volume for MariaDB"
@@ -123,6 +93,8 @@ questions:
     description: "If undefined or null, uses the default StorageClass. Default to null"
     type: storageclass
     label: Default StorageClass for MariaDB
+
+# ------------------------------------------------------------------------------------------------------------------
 - variable: persistence.enabled
   default: "false"
   description: "Enable persistent volume for WordPress"

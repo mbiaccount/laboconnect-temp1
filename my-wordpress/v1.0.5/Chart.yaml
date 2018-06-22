@@ -1,6 +1,6 @@
 name: laboconnect 
-version: 3.0.6
-appVersion: 4.9.5
+version: 0.0.1
+appVersion: 3.0.6
 description: Laboconnect software deployment
 icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
 keywords:
