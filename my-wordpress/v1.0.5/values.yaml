@@ -1,9 +1,9 @@
 ## Bitnami WordPress image version
 ## ref: https://hub.docker.com/r/bitnami/wordpress/tags/
 ##
-image:
+httpdimage:
   # registry: docker.io
-  repository: bitnami/wordpress
+  repository: docker-01.progi.loc:5000/dev/httpd-lc2
   tag: 4.9.5
   ## Specify a imagePullPolicy
   ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
