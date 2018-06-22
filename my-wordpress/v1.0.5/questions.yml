@@ -1,6 +1,7 @@
 categories:
 - Blog
 - CMS
+connerie2
 questions:
 - variable: defaultImage
   default: "true"
