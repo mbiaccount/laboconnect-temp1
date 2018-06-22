@@ -1,5 +1,5 @@
 apiVersion: apps/v1beta1
-kind: Deployment
+kind: Deploymentgrosseerreur
 metadata:
   name: {{ template "fullname" . }}
   labels:
@@ -36,10 +36,10 @@ spec:
 #            {{- end }}
 
 # -----------------------------------------------------------------------------------------------------------------
-#        - name: HTTPD_HOST
-#          value: {{ .Values.httpdhost | quote }}
-#        - name: WORDPRESS_PASSWORD
-#          value: {{ .Values.httpdport | quote }}
+        - name: HTTPD_HOST
+          value: {{ .Values.httpdhost | quote }}
+        - name: WORDPRESS_PASSWORD
+          value: {{ .Values.httpdport | quote }}
 # -----------------------------------------------------------------------------------------------------------------
         ports:
         - name: https
