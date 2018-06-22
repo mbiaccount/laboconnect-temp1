@@ -21,8 +21,8 @@ spec:
 #      {{- end}}
 #      {{- end }}
       containers:
-      - name: {{ template "fullname" . }}erreur
-        image: "{{ .Values.httpdimage.repository }}:{{ .Values.httpdimage.tag }}"
+      - name: {{ template "fullname" . }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
 
 #          valueFrom:
