@@ -11,12 +11,12 @@ questions:
   group: "HTTPD Images"
   subquestions:
   - variable: image.repository
-    default: "image location"
+    default: "docker-01.progi.loc:5000/dev/httpd-lc2"
     description: "HTTPD image"
     type: string
     label: HTTPD Image Name
   - variable: image.tag
-    default: "03.06"
+    default: "latest"
     description: "WordPress image tag"
     type: string
     label: HTTPD Image Tag
@@ -43,14 +43,14 @@ questions:
 
 # HTTPD SETTING ----------------------------------------------------------------------------------------------------
 - group: "frontal web settings"
-  variable: httpd host
+  variable: httpdhost
   default: "192.168.169.XX"
   description: "IP or FQDN of the host"
   type: string
   required: true
   label: Frontal web host
 - group: "frontal web settings"
-  variable: Access port
+  variable: httpdport
   default: ""
   description: "port you use to access application (browser)"
   type: string
