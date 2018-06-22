@@ -1,6 +1,5 @@
 piVersion: apps/v1beta1
 kind: Deployment
-con
 metadata:
   name: {{ template "fullname" . }}
   labels:
