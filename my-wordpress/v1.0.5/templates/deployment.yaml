@@ -22,7 +22,7 @@ spec:
 #      {{- end }}
       containers:
       - name: {{ template "fullname" . }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag.connerie2 }}"
         imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
 
 #          valueFrom:
