@@ -133,15 +133,15 @@ mariadb:
 ## Kubernetes configuration
 ## For minikube, set this to NodePort, elsewhere use LoadBalancer or ClusterIP
 ##
-serviceType: LoadBalancer
+serviceType: NodePort
 ##
 ## serviceType: NodePort
 ## nodePorts:
 ##   http: <to set explicitly, choose port between 30000-32767>
 ##   https: <to set explicitly, choose port between 30000-32767>
 nodePorts:
-  http: ""
-  https: ""
+#  http: ""
+  https: "30111"
 ## Enable client source IP preservation
 ## ref http://kubernetes.io/docs/tasks/access-application-cluster/create-external-load-balancer/#preserving-the-client-source-ip
 ##

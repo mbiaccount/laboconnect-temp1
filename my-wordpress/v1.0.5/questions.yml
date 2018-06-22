@@ -52,11 +52,17 @@ questions:
   required: true
   label: Frontal web host
 - group: "frontal web settings"
-  variable: httpdport
+  variable: nodePorts.https
   default: "30111"
   description: "port you use to access application (browser)"
   type: string
   label: Access port
+- group: "frontal web settings"
+  variable: serviceType
+  default: "NodePort"
+  description: "nobody understand"
+  type: string
+  label: NodePort for external endpoint
 
 # POSTGRES SETTING -------------------------------------------------------------------------------------------------
 - group: "database settings"
@@ -109,36 +115,36 @@ questions:
 
 
 # OTHERTHING--------------------------------------------------------------------------------------------------------
-- variable: serviceType
-  default: "NodePort"
-  description: "WordPress Service type"
-  type: enum
-  show_if: "ingress.enabled=false"
-  options:
-    - "ClusterIP"
-    - "NodePort"
-    - "LoadBalancer"
-  required: true
-  label: WordPress Service Type
-  show_subquestion_if: "NodePort"
-  group: "Services and Load Balancing"
-  subquestions:
-  - variable: nodePorts.http
-    default: ""
-    description: "NodePort http port(to set explicitly, choose port between 30000-32767)"
-    type: int
-    min: 30000
-    max: 32767
-    show_if: "ingress.enabled=false&&serviceType=NodePort"
-    label: NodePort Http Port
-  - variable: nodePorts.https
-    default: ""
-    description: "NodePort https port(to set explicitly, choose port between 30000-32767)"
-    type: int
-    min: 30000
-    max: 32767
-    show_if: "ingress.enabled=false&&serviceType=NodePort"
-    label: NodePort Https Port
+#- variable: serviceType
+#  default: "NodePort"
+#  description: "WordPress Service type"
+#  type: enum
+#  show_if: "ingress.enabled=false"
+#  options:
+#    - "ClusterIP"
+#    - "NodePort"
+#    - "LoadBalancer"
+#  required: true
+#  label: WordPress Service Type
+#  show_subquestion_if: "NodePort"
+#  group: "Services and Load Balancing"
+#  subquestions:
+#  - variable: nodePorts.http
+#    default: ""
+#    description: "NodePort http port(to set explicitly, choose port between 30000-32767)"
+#    type: int
+#    min: 30000
+#    max: 32767
+#    show_if: "ingress.enabled=false&&serviceType=NodePort"
+#    label: NodePort Http Port
+#  - variable: nodePorts.https
+#    default: ""
+#    description: "NodePort https port(to set explicitly, choose port between 30000-32767)"
+#    type: int
+#    min: 30000
+#    max: 32767
+#    show_if: "ingress.enabled=false&&serviceType=NodePort"
+#    label: NodePort Https Port
 - variable: ingress.enabled
   default: "true"
   description: "Expose app using Layer 7 Load Balancer - ingress"
