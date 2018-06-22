@@ -36,10 +36,10 @@ spec:
 #            {{- end }}
 
 # -----------------------------------------------------------------------------------------------------------------
-        - name: HTTPD_HOST
-          value: {{ .Values.httpdhost | quote }}
-        - name: WORDPRESS_PASSWORD
-          value: {{ .Values.httpdport | quote }}
+#        - name: HTTPD_HOST
+#          value: {{ .Values.httpdhost | quote }}
+#        - name: WORDPRESS_PASSWORD
+#          value: {{ .Values.httpdport | quote }}
 # -----------------------------------------------------------------------------------------------------------------
         ports:
         - name: https
