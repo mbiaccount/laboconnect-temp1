@@ -1,6 +1,6 @@
 # WordPress
 
-[WordPress](https://wordpress.org/) is one of the most versatile open source content management systems on the market. A publishing platform for building blogs and websites.
+[WordPress](https://wordpress.org/) is a medical application. This deployment is in dev phase
 
 ## TL;DR;
 
