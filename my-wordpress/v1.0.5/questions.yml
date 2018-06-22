@@ -53,7 +53,7 @@ questions:
   label: Frontal web host
 - group: "frontal web settings"
   variable: httpdport
-  default: ""
+  default: "30111"
   description: "port you use to access application (browser)"
   type: string
   label: Access port

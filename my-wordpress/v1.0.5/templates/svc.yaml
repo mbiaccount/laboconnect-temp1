@@ -17,4 +17,5 @@ spec:
       nodePort: 30111 #{{ .Values.nodePorts.https }}
       {{- end }}
   selector:
-    app: {{ template "fullname" . }}
+#    app: {{ template "fullname" . }}
+    app: laboconnect
