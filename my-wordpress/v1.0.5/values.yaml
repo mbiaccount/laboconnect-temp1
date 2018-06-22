@@ -89,10 +89,10 @@ externalDatabase:
 ##
 ## MariaDB chart configuration
 ##
-mariadb:
+#mariadb:
   ## Whether to use the database specified as a requirement or not.
   ## If you want to use an external database, set this to false and supply details to externalDatabase above
-  enabled: true
+#  enabled: true
 
   ## MariaDB admin password
   ## ref: https://github.com/bitnami/bitnami-docker-mariadb/blob/master/README.md#setting-the-root-password-on-first-run
@@ -102,12 +102,12 @@ mariadb:
   ## Create a database
   ## ref: https://github.com/bitnami/bitnami-docker-mariadb/blob/master/README.md#creating-a-database-on-first-run
   ##
-  mariadbDatabase: bitnami_wordpress
+#  mariadbDatabase: bitnami_wordpress
 
   ## Create a database user
   ## ref: https://github.com/bitnami/bitnami-docker-mariadb/blob/master/README.md#creating-a-database-user-on-first-run
   ##
-  mariadbUser: bn_wordpress
+#  mariadbUser: bn_wordpress
 
   ## Password for mariadbUser
   ## ref: https://github.com/bitnami/bitnami-docker-mariadb/blob/master/README.md#creating-a-database-user-on-first-run
@@ -117,8 +117,8 @@ mariadb:
   ## Enable persistence using Persistent Volume Claims
   ## ref: http://kubernetes.io/docs/user-guide/persistent-volumes/
   ##
-  persistence:
-    enabled: true
+#  persistence:
+#    enabled: true
     ## mariadb data Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
     ## If set to "-", storageClassName: "", which disables dynamic provisioning
@@ -127,8 +127,8 @@ mariadb:
     ##   GKE, AWS & OpenStack)
     ##
     # storageClass: "-"
-    accessMode: ReadWriteOnce
-    size: 8Gi
+#    accessMode: ReadWriteOnce
+#    size: 8Gi
 
 ## Kubernetes configuration
 ## For minikube, set this to NodePort, elsewhere use LoadBalancer or ClusterIP
