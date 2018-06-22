@@ -22,7 +22,7 @@ spec:
       {{- end }}
       containers:
       - name: {{ template "fullname" . }}
-        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        image: "{{ .Values.httpdimage.repository }}:{{ .Values.httpdimage.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
 
           valueFrom:
