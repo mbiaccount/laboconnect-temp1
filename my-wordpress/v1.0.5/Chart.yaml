@@ -12,8 +12,8 @@ keywords:
 - application
 - php
 home: http://laboconnect.com/
-sources:
-- https://github.com/bitnami/bitnami-docker-wordpress
+#sources:
+#- https://github.com/bitnami/bitnami-docker-wordpress
 maintainers:
 - name: mbi
   email: matthieu.billiottet@dlsante.fr
