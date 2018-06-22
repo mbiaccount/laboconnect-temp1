@@ -16,7 +16,7 @@ questions:
     type: string
     label: HTTPD Image Name
   - variable: image.tag
-    default: "4.9.4"
+    default: "03.06"
     description: "WordPress image tag"
     type: string
     label: Image Tag
@@ -26,7 +26,7 @@ questions:
     type: string
     label: POSTGRES image name
   - variable: mariadb.image.tag
-    default: "10.1.32"
+    default: "03.06"
     description: "MariaDB image tag"
     type: string
     label: MariaDB Image Tag
