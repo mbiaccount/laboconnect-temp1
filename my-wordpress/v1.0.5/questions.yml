@@ -30,19 +30,20 @@ questions:
     description: "MariaDB image tag"
     type: string
     label: MariaDB Image Tag
-- variable: wordpressUsername
-  default: "user"
-  description: "User of the application"
+# HTTPD SETTING ----------------------------------------------------------------------------------------------------
+- group: "frontal web settings"
+  variable: httpd host
+  default: "192.168.169.XX"
+  description: "IP or FQDN of the host"
   type: string
   required: true
-  label: WordPress Usernname
-  group: "WordPress Settings"
-- variable: wordpressPassword
+  label: Frontal web host
+- variable: Access port
   default: ""
-  description: "password will be auto-generated if not specified"
-  type: password
-  label: WordPress Password
-  group: "WordPress Settings"
+  description: "port you use to access application (browser)"
+  type: string
+  label: Access port
+  group: "frontal web Settings"
 - variable: wordpressEmail
   default: "user@example.com"
   description: "Admin email"
