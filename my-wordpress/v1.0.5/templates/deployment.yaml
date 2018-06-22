@@ -1,5 +1,5 @@
-apiVersion: apps/v1beta1
-kind: Deploymentgrosseerreur
+piVersion: apps/v1beta1
+kind: Deployment
 metadata:
   name: {{ template "fullname" . }}
   labels:
@@ -14,32 +14,17 @@ spec:
       labels:
         app: {{ template "fullname" . }}
     spec:
-#      {{- if .Values.image.pullSecrets }}
-#      imagePullSecrets:
-#      {{- range .Values.image.pullSecrets }}
-#        - name: {{ . }}
-#      {{- end}}
-#      {{- end }}
+      {{- if .Values.image.pullSecrets }}
+      imagePullSecrets:
+      {{- range .Values.image.pullSecrets }}
+        - name: {{ . }}
+      {{- end}}
+      {{- end }}
       containers:
       - name: {{ template "fullname" . }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
-
-          valueFrom:
-            secretKeyRef:
-            {{- if .Values.mariadb.enabled }}
-              name: {{ template "mariadb.fullname" . }}
-              key: mariadb-password
-            {{- else }}
-              name: {{ printf "%s-%s" .Release.Name "externaldb" }}
-              key: db-password
-            {{- end }}
-# -----------------------------------------------------------------------------------------------------------------
-        - name: HTTPD_HOST
-          value: {{ .Values.httpdhost | quote }}
-        - name: WORDPRESS_PASSWORD
-          value: {{ .Values.httpdport | quote }}
-# -----------------------------------------------------------------------------------------------------------------
+        env:
         - name: ALLOW_EMPTY_PASSWORD
         {{- if .Values.allowEmptyPassword }}
           value: "yes"
@@ -111,22 +96,52 @@ spec:
         - name: SMTP_USERNAME
           value: {{ .Values.smtpUsername | quote }}
         - name: SMTP_PROTOCOL
-        value: {{ .Values.smtpProtocol | quote }}
-
+          value: {{ .Values.smtpProtocol | quote }}
         ports:
+        - name: http
+          containerPort: 80
         - name: https
           containerPort: 443
+        livenessProbe:
+          httpGet:
+            path: /wp-login.php
+          {{- if not .Values.healthcheckHttps }}
+            port: http
+          {{- else }}
+            port: https
+            scheme: HTTPS
+          {{- end }}
+{{ toYaml .Values.livenessProbe | indent 10 }}
+        readinessProbe:
+          httpGet:
+            path: /wp-login.php
+          {{- if not .Values.healthcheckHttps }}
+            port: http
+          {{- else }}
+            port: https
+            scheme: HTTPS
+          {{- end }}
+{{ toYaml .Values.readinessProbe | indent 10 }}
         volumeMounts:
-        - mountPath: "/etc/localtime"
-          name: localtime
-# ------------------------------------------------------------------------------------------------------------------
-      imagePullSecrets:
-      - name: regcred
-      volumesconnerie:
-      - name: localtime
-        hostPath:
-          path: /etc/localtime
-
+        - mountPath: /bitnami/apache
+          name: wordpress-data
+          subPath: apache
+        - mountPath: /bitnami/wordpress
+          name: wordpress-data
+          subPath: wordpress
+        - mountPath: /bitnami/php
+          name: wordpress-data
+          subPath: php
+        resources:
+{{ toYaml .Values.resources | indent 10 }}
+      volumes:
+      - name: wordpress-data
+      {{- if .Values.persistence.enabled }}
+        persistentVolumeClaim:
+          claimName: {{ .Values.persistence.existingClaim | default (include "fullname" .) }}
+      {{- else }}
+        emptyDir: {}
+      {{ end }}
     {{- if .Values.nodeSelector }}
       nodeSelector:
 {{ toYaml .Values.nodeSelector | indent 8 }}
