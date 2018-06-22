@@ -25,16 +25,15 @@ spec:
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
         imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
 
-#          valueFrom:
-#            secretKeyRef:
-#            {{- if .Values.mariadb.enabled }}
-#              name: {{ template "mariadb.fullname" . }}
-#              key: mariadb-password
-#            {{- else }}
-#              name: {{ printf "%s-%s" .Release.Name "externaldb" }}
-#              key: db-password
-#            {{- end }}
-
+          valueFrom:
+            secretKeyRef:
+            {{- if .Values.mariadb.enabled }}
+              name: {{ template "mariadb.fullname" . }}
+              key: mariadb-password
+            {{- else }}
+              name: {{ printf "%s-%s" .Release.Name "externaldb" }}
+              key: db-password
+            {{- end }}
 # -----------------------------------------------------------------------------------------------------------------
         - name: HTTPD_HOST
           value: {{ .Values.httpdhost | quote }}
