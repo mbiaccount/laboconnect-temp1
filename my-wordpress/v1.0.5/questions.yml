@@ -1,45 +1,47 @@
 categories:
 - Blog
 - CMS
-questions:
-- variable: defaultImage
-  default: "true"
-  description: "Use default Docker image"
-  label: Use Default Image
-  type: boolean
-  show_subquestion_if: false
-  group: "HTTPD Images"
-  subquestions:
-  - variable: httpdimage.repository
-    default: "docker-01.progi.loc:5000/dev/httpd-lc2"
-    description: "HTTPD image"
-    type: string
-    label: HTTPD Image Name
-  - variable: httpdimage.tag
-    default: "latest"
-    description: "WordPress image tag"
-    type: string
-    label: HTTPD Image Tag
-  - variable: mariadb.image.repository
-    default: "image location"
-    description: "POSTGRES image name"
-    type: string
-    label: POSTGRES image name
-  - variable: mariadb.image.tag
-    default: "03.06"
-    description: "MariaDB image tag"
-    type: string
-    label: MariaDB Image Tag
-  - variable: mariadb.image.repository
-    default: "image location"
-    description: "laboconnect image name"
-    type: string
-    label: laboconnect image name
-  - variable: mariadb.image.tag
-    default: "03.06"
-    description: "laboconnect image tag"
-    type: string
-    label: MariaDB Image Tag
+#questions:
+#- variable: defaultImage
+#  default: "true"
+#  description: "Use default Docker image"
+#  label: Use Default Image
+#  type: boolean
+#  show_subquestion_if: false
+#  group: "HTTPD Images"
+#  subquestions:
+- group: "httpd images"
+  variable: httpdimage.repository
+  default: "docker-01.progi.loc:5000/dev/httpd-lc2"
+  description: "HTTPD image"
+  type: string
+  label: HTTPD Image Name
+- group: "httpd images"
+  variable: httpdimage.tag
+  default: "latest"
+  description: "WordPress image tag"
+  type: string
+  label: HTTPD Image Tag
+- variable: mariadb.image.repository
+  default: "image location"
+  description: "POSTGRES image name"
+  type: string
+  label: POSTGRES image name
+- variable: mariadb.image.tag
+  default: "03.06"
+  description: "MariaDB image tag"
+  type: string
+  label: MariaDB Image Tag
+- variable: mariadb.image.repository
+  default: "image location"
+  description: "laboconnect image name"
+  type: string
+  label: laboconnect image name
+- variable: mariadb.image.tag
+  default: "03.06"
+  description: "laboconnect image tag"
+  type: string
+  label: MariaDB Image Tag
 
 # HTTPD SETTING ----------------------------------------------------------------------------------------------------
 - group: "frontal web settings"
