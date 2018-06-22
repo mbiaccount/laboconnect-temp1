@@ -1,6 +1,5 @@
 apiVersion: apps/v1beta1
 kind: Deploymentgrosseerreur
-connerie3
 metadata:
   name: {{ template "fullname" . }}
   labels:
