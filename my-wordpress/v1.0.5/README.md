@@ -1,6 +1,7 @@
 # WordPress
 
-[WordPress](https://wordpress.org/) is a medical application. This deployment is in dev phase
+[WordPress](https://wordpress.org/) is a medical application. This template is in developement phase
+
 
 ## TL;DR;
 
