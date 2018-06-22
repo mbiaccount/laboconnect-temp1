@@ -28,7 +28,7 @@ questions:
     type: string
     label: POSTGRES image name
   - variable: mariadb.image.tag
-    default: "03.06"
+    default: "latest"
     description: "MariaDB image tag"
     type: string
     label: MariaDB Image Tag
@@ -38,7 +38,7 @@ questions:
     type: string
     label: laboconnect image name
   - variable: mariadb.image.tag
-    default: "03.06"
+    default: "latest"
     description: "laboconnect image tag"
     type: string
     label: MariaDB Image Tag
