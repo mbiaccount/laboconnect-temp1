@@ -32,7 +32,7 @@ spec:
         - mountPath: /etc/localtime
           name: localtime
       imagePull Secrets:
-      - name: regcred
+      - name: regcredfaux 
       volumes:
       - name: localtime
         hostPath:
