@@ -15,12 +15,12 @@ spec:
       labels:
         app: {{ template "fullname" . }}
     spec:
-#      {{- if .Values.image.pullSecrets }}
-#      imagePullSecrets:
-#      {{- range .Values.image.pullSecrets }}
-#        - name: {{ . }}
-#      {{- end}}
-#      {{- end }}
+      #{{- if .Values.image.pullSecrets }}
+      #imagePullSecrets:
+      #{{- range .Values.image.pullSecrets }}
+      #  - name: {{ . }}
+      #{{- end}}
+      #{{- end }}
       containers:
       - name: {{ template "fullname" . }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -31,6 +31,8 @@ spec:
         volumeMounts:
         - mountPath: /etc/localtime
           name: localtime
+      imagePull Secrets:
+      - name: regcred
       volumes:
       - name: localtime
         hostPath:
